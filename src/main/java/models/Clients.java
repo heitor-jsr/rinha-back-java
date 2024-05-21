@@ -15,9 +15,18 @@ public class Clients {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome")
+    private String nome;
+
     @Column(name = "limite")
     private BigDecimal limite;
 
     @Column(name = "saldo")
     private BigDecimal saldo;
+
+    public Clients(String nome, BigDecimal limite, BigDecimal saldo) {
+        this.nome = nome;
+        this.limite = limite;
+        this.saldo = saldo;
+    }
 }

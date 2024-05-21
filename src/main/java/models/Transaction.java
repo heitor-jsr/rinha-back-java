@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+
 @Getter
 @Setter
 @Entity
@@ -15,6 +16,10 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Clients cliente;
+
     @Column(name = "valor")
     private BigDecimal valor;
 
@@ -23,4 +28,7 @@ public class Transaction {
 
     @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "realizado_em")
+    private String realizadaEm;
 }
