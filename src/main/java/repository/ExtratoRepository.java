@@ -1,7 +1,8 @@
 package repository;
 
-import models.Balance;
+
+import models.Extrato;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BalanceRepository extends JpaRepository<Balance, Long> {
+public interface ExtratoRepository extends JpaRepository<Extrato, Long> {
 }
