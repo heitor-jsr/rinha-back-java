@@ -29,9 +29,12 @@ public class TransactionService {
         if (cliente.getSaldo().compareTo(value) < 0) {
             throw new RuntimeException("Saldo insuficiente");
         }
+        if (!type.equals(String.valueOf('d')) || !type.equals(String.valueOf('c'))) {
+            throw new RuntimeException("Forneça um tipo válido para a operação");
+        }
         cliente.setSaldo(cliente.getSaldo().subtract(value));
         Transaction novaTransacao = new Transaction();
-        novaTransacao.setCliente(cliente);
+        novaTransacao.setCliente(clientId);
         novaTransacao.setValor(value);
         novaTransacao.setTipo(type);
         novaTransacao.setDescricao(description);

@@ -18,7 +18,7 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-    private Clients cliente;
+    private Long cliente;
 
     @Column(name = "valor")
     private BigDecimal valor;
