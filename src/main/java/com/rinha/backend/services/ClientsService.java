@@ -1,10 +1,10 @@
-package services;
+package com.rinha.backend.services;
 
 import jakarta.transaction.Transactional;
-import models.Clients;
+import com.rinha.backend.models.Clients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.ClientRepository;
+import com.rinha.backend.repository.ClientRepository;
 
 import java.math.BigDecimal;
 

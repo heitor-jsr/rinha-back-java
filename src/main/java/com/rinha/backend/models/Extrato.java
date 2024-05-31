@@ -1,4 +1,4 @@
-package models;
+package com.rinha.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

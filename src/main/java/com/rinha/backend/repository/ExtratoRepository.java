@@ -1,7 +1,7 @@
-package repository;
+package com.rinha.backend.repository;
 
 
-import models.Extrato;
+import com.rinha.backend.models.Extrato;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ExtratoRepository extends JpaRepository<Extrato, Long> {

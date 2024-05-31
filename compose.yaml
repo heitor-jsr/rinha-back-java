@@ -1,9 +1,41 @@
+version: '3.8'
+
 services:
-  postgres:
-    image: 'postgres:latest'
-    environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+  app:
+    build: .
     ports:
-      - '5432'
+      - "8080:8080"
+    depends_on:
+      - postgredb
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 10s
+      timeout: 20s
+      retries: 3
+    networks:
+      - rinha-network
+
+  postgredb:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: rinhadb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d rinhadb"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - rinha-network
+
+volumes:
+  postgres_data:
+
+networks:
+  rinha-network:

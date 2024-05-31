@@ -1,4 +1,4 @@
-package models;
+package com.rinha.backend.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;

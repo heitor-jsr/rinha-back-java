@@ -1,6 +1,6 @@
-package repository;
+package com.rinha.backend.repository;
 
-import models.Clients;
+import com.rinha.backend.models.Clients;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClientRepository extends JpaRepository<Clients, Long> {

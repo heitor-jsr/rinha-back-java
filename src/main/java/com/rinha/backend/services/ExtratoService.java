@@ -1,19 +1,18 @@
-package services;
+package com.rinha.backend.services;
 
+import com.rinha.backend.models.Clients;
+import com.rinha.backend.models.Extrato;
+import com.rinha.backend.repository.ClientRepository;
+import com.rinha.backend.repository.TransactionRepository;
 import jakarta.transaction.Transactional;
-import models.Clients;
-import models.Extrato;
-import models.Transaction;
+import com.rinha.backend.models.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.ExtratoRepository;
-import repository.ClientRepository;
-import repository.TransactionRepository;
+import com.rinha.backend.repository.ExtratoRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,7 +32,6 @@ public class ExtratoService {
 
         ArrayList<Transaction> transactions = transactionRepository.findLatestTenByClientId(clientId)
                 .stream()
-                .limit(10)
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
         LocalDateTime agora = LocalDateTime.now();
